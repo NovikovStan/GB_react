@@ -1,5 +1,6 @@
 import React from "react";
 import Message from "./Message";
+import "../styles/styles.css";
 
 export default class MessageField extends React.Component {
   state = {
@@ -24,10 +25,13 @@ export default class MessageField extends React.Component {
     }
   }
 
-  handleClick = () => {
-    this.setState({
-      messages: [...this.state.messages, { author: "user", text: "Нормально" }]
-    });
+  handleInputEvent = (event, message) => {
+    if (event.keyCode === 13 || ( event.target.className === "sendButton" && event.type === "click")) {
+      // Enter
+      this.setState({
+        messages: [...this.state.messages, { author: "user", text: message}]
+      });
+    }
   };
 
   render() {
@@ -37,9 +41,15 @@ export default class MessageField extends React.Component {
     ));
 
     return (
-      <div>
-        {messageElements}
-        <button onClick={this.handleClick}>Отправить сообщение</button>
+      <div className="layout">
+        <div className="message-field">{messageElements}</div>
+        <div className="inputUI">
+          <input
+            onKeyUp={event => this.handleInputEvent(event, "Нормально")}
+            className="input-field"
+          />
+          <button onClick={event => this.handleInputEvent(event, "Нормально")} className="sendButton">Отправить сообщение</button>
+        </div>
       </div>
     );
   }

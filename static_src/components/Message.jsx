@@ -1,13 +1,18 @@
 import React from "react";
-import PropTypes from "prop-types";
+import "../styles/styles.css";
 
 export default class Message extends React.Component {
-//   static propTypes = {
-//     message.author: PropTypes.string.isRequired,
-//     text: PropTypes.string.isRequired
-//   };
-
   render() {
-  return <div>{this.props.message.author}: {this.props.message.text}</div>;
+    return (
+      <div
+        className={
+          this.props.message.author === "robot"
+            ? "robot-msg message"
+            : "user-msg message"
+        }
+      >
+        {this.props.message.author}: {this.props.message.text}
+      </div>
+    );
   }
 }
