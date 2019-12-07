@@ -11,6 +11,25 @@ body {
    height: 100%;
 }
 
+header {
+   width: 100%;
+   background-color: lightslategray;
+   height: 200px;
+   outline: black solid 3px;
+   margin-bottom: 20px;
+}
+
+.main {
+   display: flex;
+   justify-content: space-around;
+}
+
+.chart-list {
+   width: 30%;
+   height: 100%;
+   background-color: aliceblue;
+   outline: black solid 3px;
+}
 
 .message-field {
    display: flex;
@@ -22,25 +41,25 @@ body {
    overflow-y: scroll;
 }
 
-.input-field {
-   width: 100%;
-   padding: 5px;
-   font-size: 18px;
-}
-
-.inputUI {
+.user-input {
    display: flex;
    width: 100%;
 }
 
-.layout {
-   height: 100%;
-   width: 50%;
-   margin: auto;
+.chat {
+   height: calc(100vh - 260px);
+   width: 65%;
+   /* margin: auto; */
    display: flex;
    align-items: center;
    justify-content: center;
    flex-direction: column;
+   outline: black solid 3px;
+   padding: 10px;
+}
+
+.message-field {
+   height: 100%;
 }
 
 .message {
@@ -50,10 +69,6 @@ body {
    margin: 5px;
 }
 
-.message-sender {
-   color: gray;
-   font-size: 14px;
-}
 
 .robot-msg {
    align-self: flex-start;
